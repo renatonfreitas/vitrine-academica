@@ -1,0 +1,269 @@
+/* Paleta do Google Material Design 3 (Material You) 
+*/
+:root {
+  --md-sys-color-primary: #0061a4;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #d1e4ff;
+  --md-sys-color-on-primary-container: #001d36;
+  --md-sys-color-surface: #fdfcff;
+  --md-sys-color-on-surface: #1a1c1e;
+  --md-sys-color-surface-variant: #e0e2ec;
+  --md-sys-color-on-surface-variant: #43474e;
+  --md-sys-color-outline: #73777f;
+  --md-sys-color-background: #fdfcff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+  background-color: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-surface);
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+/* --- App Bar (Cabeçalho) --- */
+.md3-app-bar {
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  padding: 16px 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.app-bar-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Container que alinha Título, Subtítulo e a Etiqueta do Professor */
+.app-titles {
+  display: flex;
+  align-items: baseline; /* Alinha todos pela base da fonte */
+  flex-wrap: wrap; /* Permite quebrar linha se a tela for pequena */
+  gap: 16px;
+}
+
+.md3-app-bar h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.md3-app-bar p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Etiqueta com fundo restrito apenas ao texto */
+.prof-badge {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 8px; /* Cantos levemente arredondados */
+  width: max-content; /* Força o fundo a ter o tamanho exato do texto */
+}
+
+/* --- Layout da Vitrine (Grid) --- */
+.container {
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+/* --- Cartão de Projeto (Elevated Card MD3) --- */
+.md3-card {
+  background-color: var(--md-sys-color-surface);
+  border-radius: 16px; /* Raio padrão MD3 para cards grandes */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15); /* Elevação M3 Level 1 */
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s cubic-bezier(0.2, 0, 0, 1), transform 0.2s;
+}
+
+.md3-card:hover {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15); /* Elevação M3 Level 2 */
+  transform: translateY(-2px);
+}
+
+.md3-card-header {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Placeholder para Logo */
+.md3-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+/* Caso o usuário insira uma tag img */
+.md3-logo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.md3-card-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.md3-card-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  color: var(--md-sys-color-on-surface);
+}
+
+.md3-card-subtitle {
+  font-size: 14px;
+  margin: 4px 0 0;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.md3-card-body {
+  padding: 0 16px 16px;
+  font-size: 14px;
+  color: var(--md-sys-color-on-surface-variant);
+  flex-grow: 1;
+}
+
+.md3-card-body p {
+  margin: 0 0 8px 0;
+}
+
+.md3-card-body .responsibles {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--md-sys-color-surface-variant);
+}
+
+.md3-card-actions {
+  padding: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* --- Botão Preenchido (Filled Button MD3) --- */
+.md3-btn {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  border: none;
+  border-radius: 100px; /* Botões pílula do M3 */
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.md3-btn:hover {
+  background-color: #00528c;
+}
+
+/* --- Seção de Equipe (Membros e Redes Sociais) --- */
+.md3-team-section {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--md-sys-color-surface-variant);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.md3-team-title {
+  margin: 0;
+  font-size: 14px;
+  color: var(--md-sys-color-on-surface);
+}
+
+.md3-member {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Avatar circular do Material Design 3 */
+.md3-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; /* Torna a imagem perfeitamente redonda */
+  object-fit: cover;  /* Garante que a foto não fique distorcida */
+  background-color: var(--md-sys-color-surface-variant);
+}
+
+.md3-member-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.md3-member-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+}
+
+/* Links sociais em formato de ícone */
+.md3-social-links {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.md3-social-links a {
+  color: var(--md-sys-color-outline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.md3-social-links a:hover {
+  color: var(--md-sys-color-primary);
+}
+
+/* Responsividade do Cabeçalho */
+@media (max-width: 600px) {
+  .app-titles {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+/* Responsividade Básica */
+@media (max-width: 600px) {
+  .app-bar-content {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
