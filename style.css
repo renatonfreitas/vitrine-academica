@@ -31,22 +31,49 @@ body {
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
   padding: 16px 24px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
   position: sticky;
   top: 0;
   z-index: 10;
 }
 
 .app-bar-content {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Mantém logo/títulos na esquerda e créditos na direita */
+  /*flex-wrap: wrap;*/
+  gap: 24px;
+  /*24*/
+}
+
+/* Container da Logo + Títulos (Lado esquerdo) */
+.header-start {
+  display: flex;
+  align-items: center;
+  /* Mantém na mesma linha */
+  gap: 24px;
+  /* Espaço entre a logo e os textos */
+}
+
+/* Evita que a logo seja espremida ou pule de linha */
+.inst-logo {
+  height: 54px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  /* Regra de ouro para não encolher a imagem */
 }
 
 /* Container que alinha Título, Subtítulo e a Etiqueta do Professor */
 .app-titles {
   display: flex;
-  align-items: baseline; /* Alinha todos pela base da fonte */
-  flex-wrap: wrap; /* Permite quebrar linha se a tela for pequena */
+  align-items: baseline;
+  /* Alinha todos pela base da fonte */
+  flex-wrap: wrap;
+  /* Permite quebrar linha se a tela for pequena */
   gap: 16px;
 }
 
@@ -68,13 +95,75 @@ body {
   color: var(--md-sys-color-on-primary-container);
   font-size: 13px;
   padding: 4px 10px;
-  border-radius: 8px; /* Cantos levemente arredondados */
-  width: max-content; /* Força o fundo a ter o tamanho exato do texto */
+  border-radius: 8px;
+  /* Cantos levemente arredondados */
+  width: max-content;
+  /* Força o fundo a ter o tamanho exato do texto */
+}
+
+/* Container dos Créditos (Lado Direito) */
+.header-end {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.dev-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* Alinha o texto e os ícones à direita */
+}
+
+.dev-label {
+  font-size: 11px;
+  color: var(--md-sys-color-on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dev-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dev-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface);
+}
+
+.dev-socials {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dev-socials a {
+  color: var(--md-sys-color-outline);
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.dev-socials a:hover {
+  color: var(--md-sys-color-primary);
+}
+
+/* Avatar do Desenvolvedor */
+.dev-avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--md-sys-color-surface-variant);
 }
 
 /* --- Layout da Vitrine (Grid) --- */
 .container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 32px auto;
   padding: 0 24px;
   display: grid;
@@ -85,15 +174,18 @@ body {
 /* --- Cartão de Projeto (Elevated Card MD3) --- */
 .md3-card {
   background-color: var(--md-sys-color-surface);
-  border-radius: 16px; /* Raio padrão MD3 para cards grandes */
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15); /* Elevação M3 Level 1 */
+  border-radius: 16px;
+  /* Raio padrão MD3 para cards grandes */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+  /* Elevação M3 Level 1 */
   display: flex;
   flex-direction: column;
   transition: box-shadow 0.2s cubic-bezier(0.2, 0, 0, 1), transform 0.2s;
 }
 
 .md3-card:hover {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15); /* Elevação M3 Level 2 */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15);
+  /* Elevação M3 Level 2 */
   transform: translateY(-2px);
 }
 
@@ -173,7 +265,8 @@ body {
   background-color: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
   border: none;
-  border-radius: 100px; /* Botões pílula do M3 */
+  border-radius: 100px;
+  /* Botões pílula do M3 */
   padding: 10px 24px;
   font-size: 14px;
   font-weight: 500;
@@ -194,9 +287,6 @@ body {
   margin-top: 12px;
   padding-top: 12px;
   border-top: 1px solid var(--md-sys-color-surface-variant);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
 }
 
 .md3-team-title {
@@ -215,8 +305,10 @@ body {
 .md3-avatar {
   width: 80px;
   height: 80px;
-  border-radius: 50%; /* Torna a imagem perfeitamente redonda */
-  object-fit: cover;  /* Garante que a foto não fique distorcida */
+  border-radius: 50%;
+  /* Torna a imagem perfeitamente redonda */
+  object-fit: cover;
+  /* Garante que a foto não fique distorcida */
   background-color: var(--md-sys-color-surface-variant);
 }
 
@@ -251,19 +343,36 @@ body {
   color: var(--md-sys-color-primary);
 }
 
-/* Responsividade do Cabeçalho */
-@media (max-width: 600px) {
+/* Ajuste para telas pequenas (Celulares) */
+@media (max-width: 950px) {
+  .app-bar-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-start {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
   .app-titles {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
   }
-}
 
-/* Responsividade Básica */
-@media (max-width: 600px) {
-  .app-bar-content {
-    flex-direction: column;
-    gap: 4px;
+  .header-end {
+    width: 100%;
+    justify-content: space-between;
+    /* No celular, separa o texto da foto */
+    border-top: 1px solid var(--md-sys-color-surface-variant);
+    padding-top: 12px;
+    margin-top: 8px;
+  }
+
+  .dev-info {
+    align-items: flex-start;
+    /* No celular, alinha o texto à esquerda */
   }
 }
